@@ -10,6 +10,7 @@ bearertoken = ""
 accesskey = ""
 akst = ""
 
+
 auth_handler = tweepy.OAuthHandler(consumer_key = API, consumer_secret = apisk)
 auth_handler.set_access_token(accesskey, akst) 
 
@@ -17,16 +18,20 @@ api = tweepy.API(auth_handler, wait_on_rate_limit= True)
 
 switch = 1
 while switch == 1:
-    cardano = requests.get('https://api.coingecko.com/api/v3/simple/price?ids=cardano&vs_currencies=inr')
-    price_cardano_inr = cardano.json()
+    crypto = requests.get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Ccardano%2Cethereum%2Csolana%2Cmatic%2C&vs_currencies=inr%2Cinr%2Cinr%2Cinr%2Cinr%2C')
+    price_crypto_inr = crypto.json()
 
-    bitcoin = requests.get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=inr')
-    price_bitcoin_inr = bitcoin.json()
+    cardano = str(price_crypto_inr['cardano']['inr'])
+    bitcoin = str(price_crypto_inr['bitcoin']['inr'])
+    solana = str(price_crypto_inr['solana']['inr'])
+    ethereum = str(price_crypto_inr['ethereum']['inr'])
 
-    ADA = str(price_cardano_inr['cardano']['inr'])
-    BTC = str(price_bitcoin_inr['bitcoin']['inr'])
 
-    tweet = '>>>Current Price of ADA in INR: ' + ADA + 'rs' '\n' '>>>Current Price of BTC in INR: ' + BTC + 'rs'
+    tweet = '🚀 BTC: ' + bitcoin + 'rs' '\n' '🤑 ETH: ' + ethereum + 'rs' '\n' '💰 SOL: ' + solana + 'rs' '\n' '💸 ADA: ' + cardano + 'rs' + '\n' '#Crypto' ' #Bitcoin' + ' #Solana' + ' #Ethereum' + ' #Cardano'
     api.update_status(tweet) 
-    time.sleep(1*60*60)
+    # print(tweet)
+    time.sleep(2*60*60)
     print("Tweeted")
+
+
+
