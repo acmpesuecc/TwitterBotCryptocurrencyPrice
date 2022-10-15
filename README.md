@@ -1,4 +1,4 @@
-# TwitterBotCryptoPrice
+# TwitterBotCryptocurrencyPrice
 
 @Jotaro07115318
 [https://twitter.com/Jotaro07115318]
