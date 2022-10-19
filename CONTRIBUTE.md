@@ -6,7 +6,8 @@
 2. Clone the forked repo
 3. Implement changes locally from your system and check if the desired action is taking place [here](https://twitter.com/Jotaro07115318).
 4. Push the changes made from your local project folder in your system to the forked repo.
-5. Create a PR to merge the changes to the main repository.
+5. Dont forget to push the changes to a new branch.
+6. Create a PR to merge the changes to the main repository.
 
 Refer to this [blog](https://www.rowjee.com/blog/git_up_and_running) if you are facing problems with git.
 
