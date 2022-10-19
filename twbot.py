@@ -30,7 +30,7 @@ while switch == 1:
     tweet = '🚀 $BTC: ' + bitcoin + 'rs' '\n' '🤑 $ETH: ' + ethereum + 'rs' '\n' '💰 $SOL: ' + solana + 'rs' '\n' '💸 $ADA: ' + cardano + 'rs' + '\n' '#Crypto' ' #Bitcoin' + ' #Solana' + ' #Ethereum' + ' #Cardano'
     api.update_status(tweet) 
     # print(tweet)
-    time.sleep(2*60*60)
+    time.sleep(10*60*60)
     print("Tweeted")
 
 
