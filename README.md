@@ -14,9 +14,9 @@
 
 ### To build locally and test the changes made:
 
-Use this [Repl](https://replit.com/@theyashwanthsai/TwitterBotACMHackknight) and check [here](https://twitter.com/Jotaro07115318) to test out the changes made by you in the python script.
-
-Keep in mind that a twitter bot needs API keys and access keys to work properly, hence the use of replit.
+1) Fork this repo
+2) Clone the forked repo
+3) (This is for hacknight only) The keys are given freely (pls dont misuse :( xD), You can directly change and see the results in the twitter bot account.
 
 Please do note that you need to comply to these set of [rules](https://help.twitter.com/en/rules-and-policies/twitter-automation).
 
@@ -26,5 +26,5 @@ Please do note that you need to comply to these set of [rules](https://help.twit
 
 
 ### To Do:
-1) Add contribution guidelines
-2) Create a .gitignore file to save my api keys
+1) Add contribution guidelines (Done)
+2) Create a .gitignore file to save my api keys (Not needed for hacknight)
