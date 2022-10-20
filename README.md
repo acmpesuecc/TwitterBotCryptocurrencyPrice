@@ -16,7 +16,11 @@
 
 1) Fork this repo
 2) Clone the forked repo
-3) (This is for hacknight only) The keys are given freely (pls dont misuse :( xD), You can directly change and see the results in the twitter bot account.
+3) Install [tweepy](https://pypi.org/project/tweepy/) module:
+```
+pip install tweepy
+```
+4) (This is for hacknight only) The keys are given freely (pls dont misuse :( xD), You can directly change and see the results in the twitter bot account.
 
 Please do note that you need to comply to these set of [rules](https://help.twitter.com/en/rules-and-policies/twitter-automation).
 
