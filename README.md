@@ -20,7 +20,11 @@
 ```
 pip install tweepy
 ```
-4) (This is for hacknight only) The keys are given freely (pls dont misuse :( xD), You can directly change and see the results in the twitter bot account.
+4) Install [requests](https://pypi.org/project/requests/) module:
+```
+python -m pip install requests
+```
+5) (This is for hacknight only) The keys are given freely (pls dont misuse :( xD), You can directly change and see the results in the twitter bot account.
 
 Please do note that you need to comply to these set of [rules](https://help.twitter.com/en/rules-and-policies/twitter-automation).
 
