@@ -3,22 +3,22 @@ import requests
 import json
 import time
 
+API = "YNDmqZ7KIQfz05mJ5UH2iUW96"
+api_key_secret = "inPMlkfKG1bAu3jEAMQmPPQKVTnK72NX8eEXsbJnZWAkp656ga"
+bearertoken = "AAAAAAAAAAAAAAAAAAAAALXtawEAAAAA0Iue9sAXNWk1HVqXKWU9zpFWz5A%3DP8PCB5VTt8ud4OopsI57SqL3Adz2vAWl7gLqFmZDOpnY7zn1HN"
+accesstoken = "1509571461266419715-sMZB14yh7DAcV94AnhUJZ9jwjvpnwp"
+access_token_secret = "CvmUMbXvS4CKj3nFTch5Ciigdvwvm3qccbCdCf2KlayRx"
 
-API = "Uejatc9R2cSCDKH7vXqFGAAut"
-apisk = "WAMI3jQc3oWbK7LNwulOg8LLJNUy4HYZPSJh8iwALWy9QIQckp"
-bearertoken = "AAAAAAAAAAAAAAAAAAAAACTnawEAAAAAuYmiH%2BjL34xuMRfr3ofphPZ1PgQ%3D7O2pwPxRJLtRKFnChR4wpqSJPFk2GJGRBR5LOKJ4n9YiNP2wTu"
-accesskey = "824129756929150976-bVNNCMucltHJxwTsASFwhdYGDNEBVtY"
-akst = "OZOm4FZn0int3GyegHBn0Wrc6XUuoYFSC8F0dwlUjRJqe"
+auth_handler = tweepy.OAuthHandler(consumer_key=API, consumer_secret=api_key_secret)
+auth_handler.set_access_token(accesstoken, access_token_secret)
 
-
-auth_handler = tweepy.OAuthHandler(consumer_key = API, consumer_secret = apisk)
-auth_handler.set_access_token(accesskey, akst) 
-
-api = tweepy.API(auth_handler, wait_on_rate_limit= True)
+api = tweepy.API(auth_handler, wait_on_rate_limit=True)
 
 switch = 1
 while switch == 1:
-    crypto = requests.get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Ccardano%2Cethereum%2Csolana%2Cmatic%2C&vs_currencies=inr%2Cinr%2Cinr%2Cinr%2Cinr%2C')
+    crypto = requests.get(
+        'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Ccardano%2Cethereum%2Csolana%2Cmatic%2C&vs_currencies=inr%2Cinr%2Cinr%2Cinr%2Cinr%2C'
+    )
     price_crypto_inr = crypto.json()
 
     cardano = str(price_crypto_inr['cardano']['inr'])
@@ -26,7 +26,9 @@ while switch == 1:
     solana = str(price_crypto_inr['solana']['inr'])
     ethereum = str(price_crypto_inr['ethereum']['inr'])
 
-    api.update_status("BTC:", bitcoin, "rs", "ADA: ", cardano, "rs", "SOL: ", solana, "rs", "ETH: ", ethereum, "rs") 
-    # print(tweet)
-    time.sleep(10*60*60)
+    tweet = "BTC:" + bitcoin + "rs" + "ADA: " + cardano + "rs" + "SOL: " + solana + "rs" + "ETH: " + ethereum + "rs"
+    # tweet = "Hi"
+    api.update_status(tweet)
+    print(tweet)
+    time.sleep(10*60)
     print("Tweeted")
