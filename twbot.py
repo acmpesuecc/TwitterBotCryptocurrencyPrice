@@ -4,11 +4,11 @@ import json
 import time
 
 
-API = ""
-apisk = ""
-bearertoken = ""
-accesskey = ""
-akst = ""
+API = "Uejatc9R2cSCDKH7vXqFGAAut"
+apisk = "WAMI3jQc3oWbK7LNwulOg8LLJNUy4HYZPSJh8iwALWy9QIQckp"
+bearertoken = "AAAAAAAAAAAAAAAAAAAAACTnawEAAAAAuYmiH%2BjL34xuMRfr3ofphPZ1PgQ%3D7O2pwPxRJLtRKFnChR4wpqSJPFk2GJGRBR5LOKJ4n9YiNP2wTu"
+accesskey = "824129756929150976-bVNNCMucltHJxwTsASFwhdYGDNEBVtY"
+akst = "OZOm4FZn0int3GyegHBn0Wrc6XUuoYFSC8F0dwlUjRJqe"
 
 
 auth_handler = tweepy.OAuthHandler(consumer_key = API, consumer_secret = apisk)
