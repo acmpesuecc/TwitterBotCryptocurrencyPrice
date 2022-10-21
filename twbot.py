@@ -32,7 +32,7 @@ while switch == 1:
 
     # tweet = "BTC:" + bitcoin + "rs" + " $" + bitcoin_US + " ADA: " + cardano + "rs" + " $" + cardano_US + " SOL: " + solana + "rs" + " $" + solana_US + " ETH: " + ethereum + "rs" + " $" + ethereum_US
     tweet = f"BTC: ₹{bitcoin} : ${bitcoin_US}\nADA: ₹{cardano} : ${cardano_US}\nSOL: ₹{solana} : ${solana_US}\nETH: ₹{ethereum} : ${ethereum_US}\n"
-    output = "Crypto as of now 🚀\n" + tweet
+    output= "Crypto as of now 🚀\n" + tweet
     # tweet = "Hi"
     api.update_status(output)
     print(output)
