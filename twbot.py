@@ -20,13 +20,21 @@ while switch == 1:
         'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Ccardano%2Cethereum%2Csolana%2Cmatic%2C&vs_currencies=inr%2Cinr%2Cinr%2Cinr%2Cinr%2C'
     )
     price_crypto_inr = crypto.json()
-
+    
     cardano = str(price_crypto_inr['cardano']['inr'])
     bitcoin = str(price_crypto_inr['bitcoin']['inr'])
     solana = str(price_crypto_inr['solana']['inr'])
     ethereum = str(price_crypto_inr['ethereum']['inr'])
+    crypto = requests.get(
+        'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Ccardano%2Cethereum%2Csolana%2Cmatic%2C&vs_currencies=usd%2Cusd%2Cusd%2Cusd%2Cusd%2C'
+    )
+    price_crypto_usd = crypto.json()
+    cardanoUS = str(price_crypto_usd['cardano']['usd'])
+    bitcoinUS = str(price_crypto_usd['bitcoin']['usd'])
+    solanaUS = str(price_crypto_usd['solana']['usd'])
+    ethereumUS = str(price_crypto_usd['ethereum']['usd'])
 
-    tweet = "BTC:" + bitcoin + "rs" + "ADA: " + cardano + "rs" + "SOL: " + solana + "rs" + "ETH: " + ethereum + "rs"
+    tweet = "BTC: " + bitcoin + " Rs | "+ bitcoinUS + " USD" + "\n" +  "ADA: " + cardano + " Rs |  "+ cardanoUS + " USD" + "\n" + "SOL: " + solana + " Rs | " + solanaUS + " USD" + "\n" + "ETH: " + ethereum + " Rs | " + ethereumUS + " USD"
     # tweet = "Hi"
     api.update_status(tweet)
     print(tweet)
