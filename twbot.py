@@ -30,5 +30,5 @@ while switch == 1:
     # tweet = "Hi"
     api.update_status(tweet)
     print(tweet)
-    time.sleep(10*60*60)
+    time.sleep(3*60*60)
     print("Tweeted")
