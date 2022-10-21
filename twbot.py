@@ -79,7 +79,7 @@ while switch == 1:
     ape_inr = ("%.8f" % price_nft_inr['ape']['inr']).rstrip('0').rstrip('.')
     # tweet = "BTC:" + bitcoin_usd + " usd " + "ADA: " + cardano_usd + " usd " + "SOL: " + solana_usd + " usd " 
     # tweet_2 = "BTC:" + bitcoin_inr + " inr " + "ADA: " + cardano_inr + " inr " + "SOL: " + solana_inr + " inr " + "ETH: "
-    tweet_3 =  "💸 $XMON: " + xmon_inr + " inr " + "\n" + "🌊 $FLOW: " + flow_inr + " inr " + "\n" + "🐵 $APE: " + ape_inr + " inr"
+    tweet_3 =  "💸 $XMON: " + xmon_inr + " inr " + "\n" + "🌊 $FLOW: " + flow_inr + " inr " + "\n" + "🐵 $APE: " + ape_inr + " inr" +"💵🚀" #many more emojis can be added as #U+1F602 or direct emojis
     #tweet = "Hi"
     api.update_status(tweet_3)
     #print(tweet)
