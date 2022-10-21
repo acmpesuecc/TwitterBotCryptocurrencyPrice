@@ -16,6 +16,21 @@ api = tweepy.API(auth_handler, wait_on_rate_limit=True)
 
 switch = 1
 
+    
+while switch == 1:
+    crypto_ma = requests.get(
+        'https://api.coingecko.com/api/v3/simple/price?ids=matic-network&vs_currencies=inr'
+    )
+    price_crypto_inr = crypto_ma.json()
+
+    matic = str(price_crypto_inr['matic-network']['inr'])
+    tweet = "\U0001F449MATIC:" + matic
+    api.update_status(tweet)
+    print(tweet)
+    time.sleep(10*60*60)
+    print("Tweeted")
+    
+
 while switch == 1:
     crypto_s = requests.get(
         'https://api.coingecko.com/api/v3/simple/price?ids=decentraland%2Cthe-sandbox&vs_currencies=inr'
