@@ -17,6 +17,19 @@ api = tweepy.API(auth_handler, wait_on_rate_limit=True)
 switch = 1
 while switch == 1:
     crypto = requests.get(
+        'https://api.coingecko.com/api/v3/simple/price?ids=decentraland%2Cthe-sandbox&vs_currencies=inr'
+    )
+    price_crypto_inr = crypto.json()
+
+    mana = str(price_crypto_inr['decentraland']['inr'])
+    sand = str(price_crypto_inr['the-sandbox']['inr'])
+    tweet = "\U0001F449MANA:" + mana + "\n\U0001F449SAND:" + sand
+    api.update_status(tweet)
+    print(tweet)
+    time.sleep(10*60*60)
+    print("Tweeted")
+while switch == 1:
+    crypto = requests.get(
         'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Ccardano%2Cethereum%2Csolana%2Cmatic%2C&vs_currencies=inr%2Cinr%2Cinr%2Cinr%2Cinr%2C'
     )
     price_crypto_inr = crypto.json()
@@ -32,3 +45,5 @@ while switch == 1:
     print(tweet)
     time.sleep(10*60*60)
     print("Tweeted")
+
+
