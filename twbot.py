@@ -15,6 +15,22 @@ auth_handler.set_access_token(accesstoken, access_token_secret)
 api = tweepy.API(auth_handler, wait_on_rate_limit=True)
 
 switch = 1
+
+while switch == 1:
+    crypto_s = requests.get(
+        'https://api.coingecko.com/api/v3/simple/price?ids=decentraland%2Cthe-sandbox&vs_currencies=inr'
+    )
+    price_crypto_inr = crypto_s.json()
+
+    mana = str(price_crypto_inr['decentraland']['inr'])
+    sand = str(price_crypto_inr['the-sandbox']['inr'])
+    tweet = "\U0001F449MANA:" + mana + "\n\U0001F449SAND:" + sand
+    api.update_status(tweet)
+    print(tweet)
+    time.sleep(10*60*60)
+    print("Tweeted")
+    
+   
 while switch == 1:
     crypto_usd = requests.get (
             "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Ccardano%2Csolana%2Cetheruem%20&vs_currencies=usd"
