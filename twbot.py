@@ -34,8 +34,11 @@ while switch == 1:
     solanaUS = str(price_crypto_usd['solana']['usd'])
     ethereumUS = str(price_crypto_usd['ethereum']['usd'])
 
-    tweet = "BTC: " + bitcoin + " Rs | "+ bitcoinUS + " USD" + "\n" +  "ADA: " + cardano + " Rs |  "+ cardanoUS + " USD" + "\n" + "SOL: " + solana + " Rs | " + solanaUS + " USD" + "\n" + "ETH: " + ethereum + " Rs | " + ethereumUS + " USD"
+    #tweet = "BTC: " + bitcoin + " Rs | "+ bitcoinUS + " USD" + "\n" +  "ADA: " + cardano + " Rs |  "+ cardanoUS + " USD" + "\n" + "SOL: " + solana + " Rs | " + solanaUS + " USD" + "\n" + "ETH: " + ethereum + " Rs | " + ethereumUS + " USD"
     # tweet = "Hi"
+    tweet = "🤑 $BTC: Rs" + bitcoin + "\n" + " 🚀 $ADA: Rs " + cardano + "\n"+ "💸 $SOL: Rs " + solana + "\n"+ "💰 $ETH: Rs " + ethereum
+    #tweet = "BTC:" + bitcoin + "rs" + "ADA: " + cardano + "rs" + "SOL: " + solana + "rs" + "ETH: " + ethereum + " USD"
+    #tweet = "📉BTC: ₹" + bitcoin  +"\n" + "📉ADA: ₹" + cardano +"\n" + "📈SOL: ₹" + solana +"\n" + "💸ETH: ₹" + ethereum 
     api.update_status(tweet)
     print(tweet)
     time.sleep(10*60*60)
