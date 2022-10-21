@@ -1,3 +1,4 @@
+
 import tweepy
 import requests
 import json
@@ -16,19 +17,32 @@ api = tweepy.API(auth_handler, wait_on_rate_limit=True)
 
 switch = 1
 while switch == 1:
-    crypto = requests.get(
-        'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Ccardano%2Cethereum%2Csolana%2Cmatic%2C&vs_currencies=inr%2Cinr%2Cinr%2Cinr%2Cinr%2C'
+    crypto_usd = requests.get (
+            "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Ccardano%2Csolana%2Cetheruem%20&vs_currencies=usd"
     )
-    price_crypto_inr = crypto.json()
+    crypto_inr = requests.get(
+            "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Ccardano%2Csolana%2Cetheruem%20&vs_currencies=inr"
+     )
+   
+    price_crypto_usd = crypto_usd.json()
+    cardano_usd = str(price_crypto_usd['cardano']['usd'])
+    bitcoin_usd = str(price_crypto_usd['bitcoin']['usd'])
+    solana_usd = str(price_crypto_usd['solana']['usd'])
+    #ethereum_usd = str(price_crypto_usd['ethereum']['usd'])
+     
+    price_crypto_inr = crypto_inr.json()
+    cardano_inr = str(price_crypto_inr['cardano']['inr'])
+    bitcoin_inr = str(price_crypto_inr['bitcoin']['inr'])
+    solana_inr = str(price_crypto_inr['solana']['inr'])
+    # ethereum_inr = str(price_crypto_inr['ethereum']['inr'])
+    
 
-    cardano = str(price_crypto_inr['cardano']['inr'])
-    bitcoin = str(price_crypto_inr['bitcoin']['inr'])
-    solana = str(price_crypto_inr['solana']['inr'])
-    ethereum = str(price_crypto_inr['ethereum']['inr'])
 
-    tweet = "BTC:" + bitcoin + "rs" + "ADA: " + cardano + "rs" + "SOL: " + solana + "rs" + "ETH: " + ethereum + "rs"
-    # tweet = "Hi"
+    tweet = "BTC:" + bitcoin_usd + " usd " + "ADA: " + cardano_usd + " usd " + "SOL: " + solana_usd + " usd " 
+    tweet_2 = "BTC:" + bitcoin_inr + " inr " + "ADA: " + cardano_inr + " inr " + "SOL: " + solana_inr + " inr " + "ETH: " 
+    tweet = "Hi"
     api.update_status(tweet)
     print(tweet)
-    time.sleep(3*60*60)
+    print(tweet_2)
+    time.sleep(10*60*60)
     print("Tweeted")
