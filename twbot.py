@@ -3,6 +3,7 @@ import requests
 import json
 import time
 
+# Enter your own API keys here
 API = "YNDmqZ7KIQfz05mJ5UH2iUW96"
 api_key_secret = "inPMlkfKG1bAu3jEAMQmPPQKVTnK72NX8eEXsbJnZWAkp656ga"
 bearertoken = "AAAAAAAAAAAAAAAAAAAAALXtawEAAAAA0Iue9sAXNWk1HVqXKWU9zpFWz5A%3DP8PCB5VTt8ud4OopsI57SqL3Adz2vAWl7gLqFmZDOpnY7zn1HN"
@@ -16,7 +17,6 @@ api = tweepy.API(auth_handler, wait_on_rate_limit=True)
 
 switch = 1
 
-    
 # while switch == 1:
 #     crypto_ma = requests.get(
 #         'https://api.coingecko.com/api/v3/simple/price?ids=matic-network&vs_currencies=inr'
@@ -65,22 +65,23 @@ switch = 1
 #     bitcoin_inr = str(price_crypto_inr['bitcoin']['inr'])
 #     solana_inr = str(price_crypto_inr['solana']['inr'])
 #     # ethereum_inr = str(price_crypto_inr['ethereum']['inr'])
-    
 
 while switch == 1:
-    nft_inr = requests.get (
-        "https://api.coingecko.com/api/v3/simple/price?ids=xmon%2Cilv%2Cflow%2Cape&vs_currencies=inr"
-    )
+    try:
+        nft_inr = requests.get (
+            "https://api.coingecko.com/api/v3/simple/price?ids=xmon%2Cilv%2Cflow%2Cape&vs_currencies=inr"
+        )
+    except Exception:
+        print("GET request failed!")
 
     price_nft_inr = nft_inr.json()
-    
+
     xmon_inr = ("%.8f" % price_nft_inr['xmon']['inr']).rstrip('0').rstrip('.')
     flow_inr = ("%.8f" % price_nft_inr['flow']['inr']).rstrip('0').rstrip('.')
     ape_inr = ("%.8f" % price_nft_inr['ape']['inr']).rstrip('0').rstrip('.')
     # tweet = "BTC:" + bitcoin_usd + " usd " + "ADA: " + cardano_usd + " usd " + "SOL: " + solana_usd + " usd " 
-    # tweet_2 = "BTC:" + bitcoin_inr + " inr " + "ADA: " + cardano_inr + " inr " + "SOL: " + solana_inr + " inr " + "ETH: "
-    tweet_3 =  "💸 $XMON: " + xmon_inr + " inr " + "\n" + "🌊 $FLOW: " + flow_inr + " inr " + "\n" + "🐵 $APE: " + ape_inr + " inr" +"💵🚀" #many more emojis can be added as #U+1F602 or direct emojis
-    #tweet = "Hi"
+    # tweet_2 = "BTC:" + bitcoin_inr + " INR " + "ADA: " + cardano_inr + " INR " + "SOL: " + solana_inr + " INR " + "ETH: "
+    tweet_3 =  "💸 $XMON: " + xmon_inr + " INR " + "\n" + "🌊 $FLOW: " + flow_inr + " INR " + "\n" + "🐵 $APE: " + ape_inr + " INR " +"💵🚀" #many more emojis can be added as #U+1F602 or direct emojis
     api.update_status(tweet_3)
     #print(tweet)
     #print(tweet_2)
