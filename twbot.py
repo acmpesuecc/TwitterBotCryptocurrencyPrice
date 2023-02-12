@@ -67,24 +67,42 @@ switch = 1
 #     # ethereum_inr = str(price_crypto_inr['ethereum']['inr'])
 
 while switch == 1:
-    try:
-        nft_inr = requests.get (
+    nft_inr = requests.get (
             "https://api.coingecko.com/api/v3/simple/price?ids=xmon%2Cilv%2Cflow%2Cape&vs_currencies=inr"
         )
-    except Exception:
-        print("GET request failed!")
-
+    
     price_nft_inr = nft_inr.json()
 
-    xmon_inr = ("%.8f" % price_nft_inr['xmon']['inr']).rstrip('0').rstrip('.')
-    flow_inr = ("%.8f" % price_nft_inr['flow']['inr']).rstrip('0').rstrip('.')
-    ape_inr = ("%.8f" % price_nft_inr['ape']['inr']).rstrip('0').rstrip('.')
-    # tweet = "BTC:" + bitcoin_usd + " usd " + "ADA: " + cardano_usd + " usd " + "SOL: " + solana_usd + " usd " 
-    # tweet_2 = "BTC:" + bitcoin_inr + " INR " + "ADA: " + cardano_inr + " INR " + "SOL: " + solana_inr + " INR " + "ETH: "
-    tweet_3 =  "💸 $XMON: " + xmon_inr + " INR " + "\n" + "🌊 $FLOW: " + flow_inr + " INR " + "\n" + "🐵 $APE: " + ape_inr + " INR " +"💵🚀" #many more emojis can be added as #U+1F602 or direct emojis
+    crypto_s = requests.get(
+        'https://api.coingecko.com/api/v3/simple/price?ids=decentraland%2Cthe-sandbox&vs_currencies=inr'
+    )
+    
+    crypto_inr = requests.get(
+            "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Ccardano%2Csolana%2Cetheruem%20&vs_currencies=inr"
+     )
+    
+    price_crypto_inr = crypto_s.json()
+    xmon_inr = str(price_nft_inr['xmon']['inr'])
+    flow_inr = str(price_nft_inr['flow']['inr'])
+    ape_inr = str(price_nft_inr['ape']['inr'])
+    price_crypto_inr = crypto_s.json()
+    mana = str(price_crypto_inr['decentraland']['inr'])
+    sand = str(price_crypto_inr['the-sandbox']['inr'])
+    price_crypto_inr = crypto_inr.json()
+    cardano_inr = str(price_crypto_inr['cardano']['inr'])
+    bitcoin_inr = str(price_crypto_inr['bitcoin']['inr'])
+    solana_inr = str(price_crypto_inr['solana']['inr'])
+    ethereum_inr = str(price_crypto_inr['ethereum']['inr'])
+    tweet_2 = "BTC:" + bitcoin_inr + " INR " + "ADA: " + cardano_inr + " INR " + "SOL: " + solana_inr + " INR " + "ETH: "
+    tweet_3 =  "💸 $XMON: " + xmon_inr + " INR " + "\n" + "🌊 $FLOW: " + flow_inr + " INR " + "\n" + "🐵 $APE: " + ape_inr + " INR " +"💵🚀" 
+   
+    api.update_status(tweet_2) 
+    print(tweet_2)
+    
+    time.sleep(60) # after 1 minute
+    
     api.update_status(tweet_3)
-    #print(tweet)
-    #print(tweet_2)
     print(tweet_3)
-    time.sleep(10*60*60)
+    
+    time.sleep(10*60*60) # after 10 hours.
     print("Tweeted")
